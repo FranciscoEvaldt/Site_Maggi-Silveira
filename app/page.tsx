@@ -2,7 +2,7 @@ import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { PracticeAreas } from "@/components/practice-areas"
 import { About } from "@/components/about"
-import { Testimonials } from "@/components/testimonials"
+import { Team } from "@/components/team"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 
@@ -13,7 +13,7 @@ export default function Home() {
       <Hero />
       <PracticeAreas />
       <About />
-      <Testimonials />
+      <Team />
       <Contact />
       <Footer />
     </main>

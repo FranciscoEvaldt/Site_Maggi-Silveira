@@ -34,9 +34,10 @@ export function Contact() {
             Agende uma Consulta
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Pronto para discutir suas necessidades jurídicas? Entre em contato
-            conosco hoje mesmo para uma consulta confidencial. Oferecemos
-            horários flexíveis e respostas rápidas a todas as solicitações.
+            Precisa de orientação jurídica sólida e estratégica? Entre em
+            contato com o Maggi & Silveira Advogados Associados. Nossa equipe
+            está preparada para analisar sua demanda com responsabilidade,
+            técnica e atenção às particularidades do seu caso.
           </p>
         </div>
 
@@ -207,8 +208,8 @@ export function Contact() {
               </Button>
 
               <p className="text-xs text-muted-foreground text-center mt-4">
-                Todas as consultas são confidenciais. Normalmente respondemos em até
-                24 horas.
+                Todas as consultas são confidenciais. Normalmente respondemos em
+                até 24 horas.
               </p>
             </form>
           </div>

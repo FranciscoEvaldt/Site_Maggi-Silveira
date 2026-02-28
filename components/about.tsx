@@ -8,77 +8,51 @@ export function About() {
           {/* Image */}
           <div className="relative">
             <img
-              src="/professional-lawyers-in-elegant-office-conference-.jpg"
+              src="/team/3.jpeg"
               alt="Our team of experienced attorneys"
               className="w-full h-[500px] object-cover"
             />
-            <div className="absolute -bottom-8 -right-8 bg-primary p-8 hidden md:block">
-              <p className="text-4xl font-semibold text-accent mb-2">50+</p>
-              <p className="text-primary-foreground text-sm">
-                Years of Excellence
-              </p>
-            </div>
+            
           </div>
 
           {/* Content */}
           <div>
-            <p className="text-accent text-sm tracking-widest uppercase mb-4">
+            <p className="text-3xl md:text-4xl text-accent text-sm tracking-widest uppercase mb-4">
               Sobre nossa empresa
             </p>
-            <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-6 text-balance">
-              Um legado de excelência jurídica
-            </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Fundada em 2025, a Maggi & Silveira construiu uma reputação de
-              excelência na prestação de serviços jurídicos, com um compromisso
-              inabalável com nossos clientes. Nossa equipe de advogados
-              renomados reúne décadas de experiência em diversas áreas de
-              atuação.
+              O Maggi & Silveira Advogados Associados, com sede em Torres/RS, é
+              um escritório de advocacia comprometido com a resolução
+              qualificada de demandas jurídicas de média e alta complexidade,
+              atuando de forma consultiva, contenciosa e extrajudicial, sempre
+              com abordagem técnica e estratégica.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-10">
-              Acreditamos na construção de relacionamentos duradouros com nossos
-              clientes, compreendendo seus desafios únicos e fornecendo
-              consultoria estratégica que gera resultados. Nossa abordagem
-              combina valores tradicionais com estratégias jurídicas inovadoras.
+              Nossa atuação vai além da solução do conflito já instaurado.
+              Trabalhamos com planejamento jurídico e estratégia preventiva,
+              oferecendo ao cliente uma análise criteriosa de riscos e cenários,
+              possibilitando decisões seguras e bem fundamentadas. Também
+              desenvolvemos soluções na esfera extrajudicial, priorizando,
+              sempre que possível, medidas céleres e eficazes para a prevenção e
+              resolução de conflitos.
             </p>
 
-            {/* Values */}
-            <div className="space-y-6">
-              {[
-                {
-                  icon: Scale,
-                  title: "Integridade",
-                  description:
-                    "Mantemos os mais altos padrões éticos em todos os casos que analisamos.",
-                },
-                {
-                  icon: Award,
-                  title: "Excelência",
-                  description:
-                    "Nosso histórico demonstra nosso compromisso com resultados superiores.",
-                },
-                {
-                  icon: BookOpen,
-                  title: "Experiência",
-                  description:
-                    "O profundo conhecimento em diversas áreas de atuação garante uma assessoria completa.",
-                },
-              ].map((value) => (
-                <div key={value.title} className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-secondary flex items-center justify-center">
-                    <value.icon className="h-6 w-6 text-accent" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">
-                      {value.title}
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      {value.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <p className="text-muted-foreground leading-relaxed mb-10">
+              Prezamos por um atendimento humanizado e próximo, compreendendo
+              que cada cliente possui necessidades específicas e merece
+              acompanhamento individualizado, com clareza, transparência e
+              responsabilidade. Realizamos atendimentos presenciais em noso
+              escritório, em Torres, e também de forma online, garantindo
+              acessibilidade e praticidade.
+            </p>
+
+            <p className="text-muted-foreground leading-relaxed mb-10">
+              Técnica, ética, estratégia e excelência são os pilares que
+              sustentam nossa atuação. Nossa equipe mantém constante atualização
+              acadêmica e profissional, assegurando uma prestação de serviços
+              jurídicos moderna, segura e alinhada às melhores práticas.{" "}
+            </p>
+            
           </div>
         </div>
       </div>

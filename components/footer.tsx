@@ -2,24 +2,24 @@ import Link from "next/link"
 import { Scale } from "lucide-react"
 
 const footerLinks = {
-  "Practice Areas": [
+  "Áreas de Prática": [
     { label: "Corporate Law", href: "#" },
     { label: "Litigation", href: "#" },
     { label: "Estate Planning", href: "#" },
     { label: "Real Estate", href: "#" },
     { label: "Family Law", href: "#" },
   ],
-  Resources: [
+  Recursos: [
     { label: "Legal Blog", href: "#" },
     { label: "FAQs", href: "#" },
     { label: "Client Portal", href: "#" },
     { label: "News & Updates", href: "#" },
   ],
-  Company: [
-    { label: "About Us", href: "#about" },
-    { label: "Our Team", href: "#" },
-    { label: "Careers", href: "#" },
-    { label: "Contact", href: "#contact" },
+  Empresa: [
+    { label: "Sobre nós", href: "#about" },
+    { label: "Nossa equipe", href: "#" },
+    { label: "Carreiras", href: "#" },
+    { label: "Contato", href: "#contact" },
   ],
 }
 
@@ -33,15 +33,15 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-6">
               <Scale className="h-8 w-8 text-accent" />
               <div className="flex flex-col">
-                <span className="text-xl font-semibold tracking-tight">Morrison & Associates</span>
-                <span className="text-xs text-primary-foreground/70 tracking-widest uppercase">Attorneys at Law</span>
+                <span className="text-xl font-semibold tracking-tight">Maggi & Silveira</span>
+                <span className="text-xs text-primary-foreground/70 tracking-widest uppercase">Sociedade de advogados</span>
               </div>
             </Link>
             <p className="text-primary-foreground/80 leading-relaxed mb-6 max-w-sm">
-              Providing distinguished legal counsel with integrity and excellence for over 50 years. Your trusted
-              partner in navigating complex legal matters.
+              Oferecendo assessoria jurídica de excelência, integridade e distinção há mais de 50 anos.
+              Seu parceiro de confiança para lidar com questões jurídicas complexas.
             </p>
-            <p className="text-sm text-primary-foreground/60">Licensed in New York, New Jersey, and Connecticut</p>
+            <p className="text-sm text-primary-foreground/60">Licenciado em Torres</p>
           </div>
 
           {/* Links */}
@@ -67,26 +67,26 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-primary-foreground/60">
-            © {new Date().getFullYear()} Morrison & Associates. All rights reserved.
+            © {new Date().getFullYear()} Maggi & Silveira. Todos os direitos reservados.
           </p>
           <div className="flex gap-6">
             <Link
               href="#"
               className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
             >
-              Privacy Policy
+              política de Privacidade
             </Link>
             <Link
               href="#"
               className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
             >
-              Terms of Service
+              Termos de Serviço
             </Link>
             <Link
               href="#"
               className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
             >
-              Disclaimer
+              Isenção de responsabilidade
             </Link>
           </div>
         </div>
