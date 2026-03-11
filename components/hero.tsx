@@ -53,23 +53,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10 border-t border-primary-foreground/20">
-          {[
-            { number: "50+", label: "Anos de experiência" },
-            { number: "2,500+", label: "Casos vencidos" },
-            { number: "98%", label: "Taxa de sucesso" },
-            { number: "24/7", label: "Suporte ao cliente" },
-          ].map((stat) => (
-            <div key={stat.label}>
-              <p className="text-3xl md:text-4xl font-semibold text-accent mb-2">
-                {stat.number}
-              </p>
-              <p className="text-sm text-primary-foreground/70">{stat.label}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
 }
+

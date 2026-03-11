@@ -11,68 +11,65 @@ const practiceAreas = [
   {
     icon: Building2,
     title: "Direito Imobiliário",
-    description:
-      "Assessoria em negociações, regularizações, incorporações, condomínios e estruturação jurídica de negócios imobiliários.",
+    description: "",
   },
   {
     icon: Gavel,
     title: "Direito Ambiental",
-    description:
-      "Consultoria e atuação em questões ambientais, licenciamento, responsabilidade ambiental e adequação normativa.",
+    description: "",
   },
   {
     icon: FileText,
     title: "Contratos",
-    description:
-      "Elaboração, análise e revisão contratual com foco na segurança jurídica e prevenção de litígios.",
+    description: "",
   },
   {
     icon: Briefcase,
     title: "Direito Obrigacional",
     description:
-      "Atuação em relações obrigacionais, responsabilidade civil e cumprimento de obrigações contratuais e legais.",
+      "",
   },
   {
     icon: Users,
     title: "Direito de Família e Sucessões",
     description:
-      "Atuação em divórcios, guarda, alimentos, inventários e planejamento sucessório.",
+      "",
   },
   {
     icon: Shield,
     title: "Direito Civil",
     description:
-      "Atuação em demandas cíveis diversas, com condução estratégica de processos judiciais e administrativos.",
+      "",
   },
   {
     icon: Shield,
     title: "Direito do Trabalho",
     description:
-      "Defesa e acompanhamento em reclamações trabalhistas, consultoria preventiva e gestão de passivos.",
+      "",
   },
   {
     icon: Shield,
     title: "Direito Previdenciário",
     description:
-      "Atuação na concessão, revisão e restabelecimento de benefícios previdenciários, incluindo aposentadorias, pensões, auxílios e benefícios por incapacidade, tanto na esfera administrativa quanto judicial.",
+      "",
   },
   {
     icon: Shield,
     title: "Direito de Transporte",
     description:
-      "Assessoria e atuação em demandas envolvendo transporte público e privado, responsabilidade civil de transportadoras, contratos de transporte, questões regulatórias e litígios relacionados ao setor.",
+      "",
   },
   {
     icon: Shield,
     title: "Direito de Trânsito",
     description:
-      "Atuação em processos administrativos e judiciais relacionados a infrações e penalidades de trânsito.",
+      "",
   },
   {
     icon: Shield,
     title: "Assessoria Extrajudicial",
     description:
-      "Soluções estratégicas fora do âmbito judicial, com foco na prevenção de conflitos e na resolução célere de demandas.",
+      "",
   },
 ];
 
@@ -95,19 +92,24 @@ export function PracticeAreas() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {practiceAreas.map((area) => (
             <div
               key={area.title}
               className="group bg-card p-8 border border-border hover:border-accent/50 transition-all duration-300"
             >
-              <area.icon className="h-10 w-10 text-accent mb-6" />
-              <h3 className="text-xl font-semibold text-foreground mb-4">
-                {area.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {area.description}
-              </p>
+              <div className="flex items-start gap-4">
+                <area.icon className="h-10 w-10 text-accent flex-shrink-0" />
+
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                    {area.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {area.description}
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

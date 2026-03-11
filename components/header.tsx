@@ -21,13 +21,13 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <Scale className="h-8 w-8 text-accent" />
+            
             <div className="flex flex-col">
               <span className="text-xl font-semibold tracking-tight text-foreground">
-                Maggi & Silveira
+                <img src="/public/secundaria.jpg" alt="" />
               </span>
               <span className="text-xs text-muted-foreground tracking-widest uppercase">
-                Sociedade de advogados
+                
               </span>
             </div>
           </Link>
