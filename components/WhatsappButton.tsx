@@ -3,7 +3,7 @@
 import { FaWhatsapp } from "react-icons/fa";
 
 export function WhatsappButton() {
-  const phone = "5551999999999"; // coloque seu número
+  const phone = "555199204815"; // coloque seu número
   const message = "Olá, gostaria de falar com um advogado.";
 
   const link = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
