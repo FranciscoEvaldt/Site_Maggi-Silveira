@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
 import {
   Briefcase,
   Building2,
@@ -5,115 +9,185 @@ import {
   FileText,
   Shield,
   Gavel,
+  X,
 } from "lucide-react";
 
-const practiceAreas = [
+type PracticeArea = {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+};
+
+const practiceAreas: PracticeArea[] = [
   {
     icon: Building2,
     title: "Direito Imobiliário",
-    description: "",
+    description:
+      "Atuação em compra e venda de imóveis, regularização imobiliária, usucapião, análise de contratos e resolução de conflitos relacionados à propriedade.",
   },
   {
     icon: Gavel,
     title: "Direito Ambiental",
-    description: "",
+    description:
+      "Assessoria jurídica em licenciamento ambiental, responsabilidade ambiental e adequação à legislação vigente.",
   },
   {
     icon: FileText,
     title: "Contratos",
-    description: "",
+    description:
+      "Elaboração, revisão e análise de contratos civis e empresariais, garantindo segurança jurídica nas relações negociais.",
   },
   {
     icon: Briefcase,
     title: "Direito Obrigacional",
     description:
-      "",
+      "Atuação em demandas relacionadas ao cumprimento de obrigações, responsabilidade civil e disputas contratuais.",
   },
   {
     icon: Users,
     title: "Direito de Família e Sucessões",
     description:
-      "",
+      "Assessoria em divórcios, pensão alimentícia, guarda de filhos, inventários e planejamento sucessório.",
   },
   {
     icon: Shield,
     title: "Direito Civil",
     description:
-      "",
+      "Atuação em responsabilidade civil, indenizações e defesa de direitos em relações privadas.",
   },
   {
     icon: Shield,
     title: "Direito do Trabalho",
     description:
-      "",
+      "Defesa dos direitos trabalhistas, reclamações trabalhistas e consultoria preventiva.",
   },
   {
     icon: Shield,
     title: "Direito Previdenciário",
     description:
-      "",
+      "Assessoria em aposentadorias, benefícios previdenciários e revisões junto ao INSS.",
   },
   {
     icon: Shield,
     title: "Direito de Transporte",
     description:
-      "",
+      "Consultoria jurídica em transporte de cargas e passageiros e responsabilidades legais.",
   },
   {
     icon: Shield,
     title: "Direito de Trânsito",
     description:
-      "",
+      "Defesa administrativa em multas, recursos de suspensão de CNH e processos de trânsito.",
   },
   {
     icon: Shield,
     title: "Assessoria Extrajudicial",
     description:
-      "",
+      "Consultoria jurídica preventiva e acompanhamento de negociações fora do judiciário.",
   },
 ];
 
 export function PracticeAreas() {
+  const [selectedArea, setSelectedArea] = useState<PracticeArea | null>(null);
+
   return (
-    <section id="practice-areas" className="py-24 bg-secondary">
+    <section id="practice-areas" className="py-28 bg-secondary">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <p className="text-accent text-sm tracking-widest uppercase mb-4">
+
+        {/* Título */}
+        <div className="text-center mb-20">
+          <p className="text-accent text-sm tracking-[0.3em] uppercase mb-4">
             O que fazemos
           </p>
+
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-6">
-            Nossas Áreas de Atuação
+            Áreas de Atuação
           </h2>
+
+          <div className="w-20 h-[2px] bg-accent mx-auto mb-6"></div>
+
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Prestamos serviços jurídicos abrangentes em múltiplas áreas do
-            Direito, desenvolvendo soluções estratégicas e personalizadas,
-            estruturadas de acordo com as necessidades e particularidades de
+            Prestamos serviços jurídicos abrangentes em diversas áreas do
+            Direito, oferecendo soluções estratégicas e personalizadas para
             cada cliente.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {practiceAreas.map((area) => (
-            <div
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+          {practiceAreas.map((area, index) => (
+            <motion.div
               key={area.title}
-              className="group bg-card p-8 border border-border hover:border-accent/50 transition-all duration-300"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              viewport={{ once: true }}
+              onClick={() => setSelectedArea(area)}
+              className="group relative cursor-pointer bg-card border border-border p-8 rounded-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
             >
-              <div className="flex items-start gap-4">
-                <area.icon className="h-10 w-10 text-accent flex-shrink-0" />
+              {/* linha dourada */}
+              <div className="absolute left-0 top-0 h-full w-1 bg-accent scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-500"></div>
+
+              <div className="flex items-start gap-5">
+                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-accent/10">
+                  <area.icon className="h-6 w-6 text-accent group-hover:scale-110 transition" />
+                </div>
 
                 <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                  <h3 className="text-lg font-semibold text-foreground mb-1">
                     {area.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {area.description}
+
+                  <p className="text-sm text-muted-foreground">
+                    Clique para saber mais
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Modal */}
+      {selectedArea && (
+        <motion.div
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          onClick={() => setSelectedArea(null)}
+        >
+          <motion.div
+            className="bg-white max-w-xl w-full rounded-2xl p-10 shadow-2xl relative"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedArea(null)}
+              className="absolute top-5 right-5 text-gray-500 hover:text-black"
+            >
+              <X size={22} />
+            </button>
+
+            <h3 className="text-2xl font-semibold mb-4">
+              {selectedArea.title}
+            </h3>
+
+            <div className="w-14 h-[2px] bg-accent mb-6"></div>
+
+            <p className="text-muted-foreground leading-relaxed text-lg mb-8">
+              {selectedArea.description}
+            </p>
+
+            <a
+              href="#contato"
+              className="inline-block bg-accent text-white px-6 py-3 rounded-lg hover:opacity-90 transition"
+            >
+              Falar com advogado
+            </a>
+          </motion.div>
+        </motion.div>
+      )}
     </section>
   );
 }

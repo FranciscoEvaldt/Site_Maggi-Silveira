@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Playfair_Display, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import { WhatsappButton } from "@/components/WhatsappButton";
 
 const _playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" })
 const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Escritório de advocacia de excelência com mais de 50 anos de experiência combinada. Especializado em direito empresarial, contencioso e planejamento sucessório.",
 }
-
+  
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className={`font-sans antialiased`}>
         {children}
         <Analytics />
+        <WhatsappButton />
       </body>
     </html>
   )

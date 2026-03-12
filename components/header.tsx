@@ -22,14 +22,11 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
             
-            <div className="flex flex-col">
-              <span className="text-xl font-semibold tracking-tight text-foreground">
-                <img src="/public/secundaria.jpg" alt="" />
-              </span>
-              <span className="text-xs text-muted-foreground tracking-widest uppercase">
-                
-              </span>
-            </div>
+             <div className="flex flex-col">
+          <span className="text-xl font-semibold tracking-tight text-foreground">
+            <img src="/secundaria preto.png" alt="Logo" className="h-20 w-auto" />
+          </span>
+        </div>
           </Link>
 
           {/* Desktop Navigation */}
