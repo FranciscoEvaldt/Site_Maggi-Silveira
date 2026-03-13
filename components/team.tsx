@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 
 const team: TeamMember[] = [
   {
@@ -31,12 +32,12 @@ Possui mais de seis anos de atuação no ramo da advocacia e experiência consol
 ];
 
 type TeamMember = {
-  name: string
-  role: string
-  image: string
-  description: string
-  lattes: string
-}
+  name: string;
+  role: string;
+  image: string;
+  description: string;
+  lattes: string;
+};
 
 export function Team() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
@@ -129,14 +130,17 @@ export function Team() {
             <p className="text-gray-700 whitespace-pre-line leading-relaxed">
               {selectedMember.description}
             </p>
-
-            <a
-              href={selectedMember.lattes}
-              target="_blank"
-              className="block mt-6 text-[#C46A3C] hover:text-[#A5552F] font-medium"
-            >
-              Currículo Lattes →
-            </a>
+            <div className="flex justify-center mt-8">
+              <a
+                href={selectedMember.lattes}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-8 bg-[#C46A3C] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#A5552F] transition "
+              >
+                Ver Currículo Lattes
+                <ExternalLink size={18} />
+              </a>
+            </div>
           </div>
         </div>
       )}
