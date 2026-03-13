@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const team = [
+const team: TeamMember[] = [
   {
     name: "Cíntia Maggi",
     role: "Sócio Fundador",
@@ -30,12 +30,21 @@ Possui mais de seis anos de atuação no ramo da advocacia e experiência consol
   },
 ];
 
+type TeamMember = {
+  name: string
+  role: string
+  image: string
+  description: string
+  lattes: string
+}
+
 export function Team() {
-  const [selectedMember, setSelectedMember] = useState<any>(null);
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
 
   return (
-    <section id="team" className="py-28 bg-primary">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+    <section id="team" className="py-28 relative bg-primary overflow-hidden">
+      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#C46A3C,_transparent_70%)]"></div>
+      <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
         {/* Título */}
 
         <div className="text-center mb-20">
@@ -55,7 +64,7 @@ export function Team() {
             <div
               key={index}
               onClick={() => setSelectedMember(member)}
-              className="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer"
+              className="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer border border-transparent hover:border-[#C46A3C] transition-all duration-300"
             >
               <div className="relative w-full aspect-[3/4] overflow-hidden">
                 <Image
@@ -65,7 +74,6 @@ export function Team() {
                   className="object-cover transition duration-700 group-hover:scale-110"
                 />
 
-                {/* overlay */}
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
                   <span className="bg-[#C46A3C] text-white px-6 py-2 rounded-md font-medium">
                     Ver perfil →
@@ -73,13 +81,27 @@ export function Team() {
                 </div>
               </div>
 
-              {/* texto */}
               <div className="p-6 text-center bg-primary-foreground/5">
-                <h3 className="text-2xl font-semibold text-primary-foreground">
-                  {member.name}
-                </h3>
+                <div className="inline-block">
+                  <h3 className="text-2xl font-semibold text-primary-foreground">
+                    {member.name}
+                  </h3>
 
-                <p className="text-accent">{member.role}</p>
+                  <div className="h-[2px] bg-[#C46A3C] w-10 mt-2 mx-auto md:mx-0 transition-all duration-500 group-hover:w-full"></div>
+                </div>
+
+                <p className="text-accent mb-4">{member.role}</p>
+
+                {/* botão só no celular */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedMember(member);
+                  }}
+                  className="md:hidden bg-[#C46A3C] text-white px-5 py-2 rounded-md font-medium hover:bg-[#A5552F] transition"
+                >
+                  Ver perfil
+                </button>
               </div>
             </div>
           ))}
