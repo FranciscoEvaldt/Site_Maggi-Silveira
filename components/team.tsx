@@ -54,6 +54,7 @@ export function Team() {
           {team.map((member, index) => (
             <div
               key={index}
+              onClick={() => setSelectedMember(member)}
               className="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer"
             >
               <div className="relative w-full aspect-[3/4] overflow-hidden">
@@ -64,32 +65,21 @@ export function Team() {
                   className="object-cover transition duration-700 group-hover:scale-110"
                 />
 
-                {/* overlay desktop */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500 hidden md:flex items-center justify-center">
-                  <button
-                    onClick={() => setSelectedMember(member)}
-                    className="bg-[#C46A3C] text-white px-6 py-2 rounded-md font-medium hover:scale-105 transition"
-                  >
+                {/* overlay */}
+                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                  <span className="bg-[#C46A3C] text-white px-6 py-2 rounded-md font-medium">
                     Ver perfil →
-                  </button>
+                  </span>
                 </div>
               </div>
 
-              {/* TEXTO */}
+              {/* texto */}
               <div className="p-6 text-center bg-primary-foreground/5">
                 <h3 className="text-2xl font-semibold text-primary-foreground">
                   {member.name}
                 </h3>
 
-                <p className="text-accent mb-4">{member.role}</p>
-
-                {/* botão visível no celular */}
-                <button
-                  onClick={() => setSelectedMember(member)}
-                  className="md:hidden bg-[#C46A3C] text-white px-5 py-2 rounded-md font-medium"
-                >
-                  Ver perfil →
-                </button>
+                <p className="text-accent">{member.role}</p>
               </div>
             </div>
           ))}
