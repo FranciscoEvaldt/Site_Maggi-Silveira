@@ -41,7 +41,7 @@ export function Header() {
               </Link>
             ))}
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-              <Link href="#contact">Consulta Gratuita</Link>
+              <Link href="#contact">Entre em contato</Link>
             </Button>
           </nav>
 
@@ -74,7 +74,7 @@ export function Header() {
                 </Link>
               ))}
               <Button className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90">
-                Consulta Gratuita
+                  Entre em contato
               </Button>
             </div>
           </nav>

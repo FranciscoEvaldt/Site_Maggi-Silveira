@@ -3,6 +3,7 @@ import { Hero } from "@/components/hero"
 import { PracticeAreas } from "@/components/practice-areas"
 import { About } from "@/components/about"
 import { Team } from "@/components/team"
+import { Articles } from "@/components/articles"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 
@@ -14,6 +15,7 @@ export default function Home() {
       <PracticeAreas />
       <About />
       <Team />
+      <Articles />
       <Contact />
       <Footer />
     </main>

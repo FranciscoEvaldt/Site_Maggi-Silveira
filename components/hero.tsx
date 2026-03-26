@@ -38,7 +38,7 @@ export function Hero() {
               asChild
             >
               <Link href="#contact">
-                Agende uma Consulta
+                Entre em contato
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>

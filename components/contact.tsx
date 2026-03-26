@@ -1,218 +1,186 @@
 "use client";
 
-import type React from "react";
-
-import { useState } from "react";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { motion } from "framer-motion";
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-  };
-
   return (
     <section id="contact" className="py-24 bg-secondary">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        {/* HEADER */}
         <div className="text-center mb-16">
           <p className="text-accent text-sm tracking-widest uppercase mb-4">
-            Entre em contato
+            Entre em contato 
           </p>
-          <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-6">
-            Agende uma Consulta
+
+          <h2 className="text-3xl md:text-4xl tracking-widest text-accent tracking-widest text-foreground mb-6">
+             Entre em contato 
           </h2>
+
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Precisa de orientação jurídica sólida e estratégica? Entre em
-            contato com o Maggi & Silveira Advogados Associados. Nossa equipe
-            está preparada para analisar sua demanda com responsabilidade,
-            técnica e atenção às particularidades do seu caso.
+            contato conosco.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-12">
-          {/* Contact Info */}
-          <div className="lg:col-span-2 space-y-8">
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-primary flex items-center justify-center">
-                <MapPin className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-foreground mb-1">
-                  Localização do escritório
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  Rua Nossa Senhora dos Navegantes, nº 130, Loja 05
-                  <br />
-                  Bairro Igra Sul, Torres/RS, CEP 95560-000
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-primary flex items-center justify-center">
-                <Phone className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-foreground mb-1">Telefone</h4>
-                <p className="text-sm text-muted-foreground">
-                  (51) 99920-4815
-                  <br />
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-primary flex items-center justify-center">
-                <Mail className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-foreground mb-1">Email</h4>
-                <p className="text-sm text-muted-foreground">
-                  maggiesilveira.adv@gmail.com
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-primary flex items-center justify-center">
-                <Clock className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-foreground mb-1">
-                  Horário comercial
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  Segunda a sexta-feira: 8h00 – 18h00
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="lg:col-span-3">
-            <form
-              onSubmit={handleSubmit}
-              className="bg-card p-8 border border-border"
-            >
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-foreground mb-2"
+          {/* INFO */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* ITEM */}
+            {[
+              {
+                icon: MapPin,
+                title: "Localização",
+                content: (
+                  <a
+                    href="https://www.google.com/maps?q=Rua+Nossa+Senhora+dos+Navegantes,+130,+Torres+RS"
+                    target="_blank"
+                    className="text-sm text-muted-foreground hover:text-accent transition"
                   >
-                    Nome completo
-                  </label>
-                  <Input
-                    id="name"
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    placeholder="João Silva"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    Rua Nossa Senhora dos Navegantes, nº 130
+                    <br />
+                    Torres/RS
+                  </a>
+                ),
+              },
+              {
+                icon: Phone,
+                title: "Telefone",
+                content: (
+                  <>
+                    <a
+                      href="tel:+5551999204815"
+                      className="block text-sm text-muted-foreground hover:text-accent"
+                    >
+                      (51) 99920-4815
+                    </a>
+                    <a
+                      href="https://wa.me/5551999204815"
+                      target="_blank"
+                      className="text-sm text-green-600 hover:underline"
+                    >
+                      WhatsApp
+                    </a>
+                  </>
+                ),
+              },
+              {
+                icon: Mail,
+                title: "Email",
+                content: (
+                  <a
+                    href="mailto:maggiesilveira.adv@gmail.com"
+                    className="text-sm text-muted-foreground hover:text-accent"
                   >
-                    Endereço de email
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    placeholder="joão@example.com"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    maggiesilveira.adv@gmail.com
+                  </a>
+                ),
+              },
+              {
+                icon: Instagram,
+                title: "Instagram",
+                content: (
+                  <a
+                    href="https://instagram.com/maggisilveira.adv"
+                    target="_blank"
+                    className="text-sm text-muted-foreground hover:text-accent transition"
                   >
-                    Número de telefone
-                  </label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
-                    placeholder="(51) 99123-4567"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Questão Jurídica
-                  </label>
-                  <Input
-                    id="subject"
-                    value={formData.subject}
-                    onChange={(e) =>
-                      setFormData({ ...formData, subject: e.target.value })
-                    }
-                    placeholder="Por exemplo, Direito Societário"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="mb-6">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-foreground mb-2"
-                >
-                  Como podemos ajudar?
-                </label>
-                <Textarea
-                  id="message"
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  placeholder="Por favor, descreva brevemente sua questão jurídica..."
-                  rows={5}
-                  required
-                />
-              </div>
-
-              <Button
-                type="submit"
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                    @maggisilveira.adv
+                  </a>
+                ),
+              },
+              {
+                icon: Clock,
+                title: "Horário",
+                content: (
+                  <p className="text-sm text-muted-foreground">
+                    Segunda a sexta
+                    <br />
+                    9h00 – 12h00
+                    <br />
+                    13h30 – 18h00
+                  </p>
+                ),
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group relative flex gap-4 p-4 rounded-lg hover:bg-card hover:shadow-md transition-all duration-300"
               >
-                Solicitar Consulta
-              </Button>
+                {/* LINHA DOURADA */}
+                <div className="absolute left-0 top-0 h-full w-1 bg-accent scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-500"></div>
 
-              <p className="text-xs text-muted-foreground text-center mt-4">
-                Todas as consultas são confidenciais. Normalmente respondemos em
-                até 24 horas.
-              </p>
-            </form>
+                <div className="w-12 h-12 flex items-center justify-center bg-primary rounded-md group-hover:scale-110 transition">
+                  <item.icon className="h-5 w-5 text-primary-foreground" />
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-foreground mb-1">
+                    {item.title}
+                  </h4>
+                  {item.content}
+                </div>
+              </motion.div>
+            ))}
           </div>
+
+          {/* MAPA */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4 }}
+            viewport={{ once: true }}
+            className="lg:col-span-3 space-y-6"
+          >
+            <div className="relative w-full h-[350px] rounded-xl overflow-hidden border border-border shadow-md">
+              <iframe
+                src="https://www.google.com/maps?q=Rua+Nossa+Senhora+dos+Navegantes,+130,+Torres+RS&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+              ></iframe>
+            </div>
+
+            <p className="text-center text-muted-foreground">
+              Fale conosco diretamente pelo WhatsApp ou venha até nosso
+              escritório.
+            </p>
+
+            {/* BOTÕES */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="https://wa.me/5551999204815"
+                target="_blank"
+                className="flex-1"
+              >
+                <Button className="w-full relative overflow-hidden bg-green-600 hover:bg-green-700 text-white shadow-md transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]">
+                  <span className="relative z-10">Falar pelo WhatsApp</span>
+
+                  {/* brilho animado */}
+                  <span className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition"></span>
+                </Button>
+              </a>
+
+              <a
+                href="https://www.google.com/maps?q=Rua+Nossa+Senhora+dos+Navegantes,+130,+Torres+RS"
+                target="_blank"
+                className="flex-1"
+              >
+                <Button
+                  variant="outline"
+                  className="w-full border-primary text-primary hover:bg-primary/10"
+                >
+                  Ver localização
+                </Button>
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
