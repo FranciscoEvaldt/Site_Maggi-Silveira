@@ -1,13 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
+
+type TeamMember = {
+  name: string;
+  role: string;
+  image: string;
+  description: string;
+  lattes: string;
+};
 
 const team: TeamMember[] = [
   {
     name: "Cíntia Maggi",
-    role: "Sócio Fundador",
+    role: "OAB/RS 124.211",
     image: "/team/2.jpeg",
     lattes: "http://lattes.cnpq.br/0868179588016270",
     description: `Cíntia Maggi Scheffer é advogada inscrita na OAB/RS sob o nº 124.211, com atuação jurídica consolidada há mais de 10 anos. 
@@ -20,7 +28,7 @@ Sua atuação é pautada na técnica, responsabilidade e comprometimento com sol
   },
   {
     name: "Angélica Silveira",
-    role: "Sócio Fundador",
+    role: "OAB/RS 128.182",
     image: "/team/1.jpeg",
     lattes: "http://lattes.cnpq.br/6201073218835213",
     description: `Angélica Vitória Oliveira Silveira é advogada inscrita na OAB/RS sob o nº 128.182.
@@ -31,23 +39,32 @@ Possui mais de seis anos de atuação no ramo da advocacia e experiência consol
   },
 ];
 
-type TeamMember = {
-  name: string;
-  role: string;
-  image: string;
-  description: string;
-  lattes: string;
-};
-
 export function Team() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+
+  // 🔥 Fechar com ESC
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedMember(null);
+      }
+    };
+
+    if (selectedMember) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedMember]);
 
   return (
     <section id="team" className="py-28 relative bg-primary overflow-hidden">
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#C46A3C,_transparent_70%)]"></div>
+
       <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
         {/* Título */}
-
         <div className="text-center mb-20">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-4">
             Nossa Equipe
@@ -59,7 +76,6 @@ export function Team() {
         </div>
 
         {/* CARDS */}
-
         <div className="grid md:grid-cols-2 gap-12">
           {team.map((member, index) => (
             <div
@@ -72,7 +88,7 @@ export function Team() {
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover transition duration-700 group-hover:scale-110"
+                  className="object-cover object-top transition duration-700 group-hover:scale-110"
                 />
 
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
@@ -93,7 +109,6 @@ export function Team() {
 
                 <p className="text-accent mb-4">{member.role}</p>
 
-                {/* botão só no celular */}
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -110,10 +125,15 @@ export function Team() {
       </div>
 
       {/* MODAL */}
-
       {selectedMember && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center p-6 z-50">
-          <div className="bg-white max-w-2xl w-full rounded-xl p-8 relative max-h-[80vh] overflow-y-auto">
+        <div
+          className="fixed inset-0 bg-black/60 flex items-center justify-center p-6 z-50"
+          onClick={() => setSelectedMember(null)}
+        >
+          <div
+            className="bg-white max-w-2xl w-full rounded-xl p-8 relative max-h-[80vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               onClick={() => setSelectedMember(null)}
               className="absolute top-4 right-4 text-gray-500 hover:text-black"
@@ -130,12 +150,13 @@ export function Team() {
             <p className="text-gray-700 whitespace-pre-line leading-relaxed">
               {selectedMember.description}
             </p>
+
             <div className="flex justify-center mt-8">
               <a
                 href={selectedMember.lattes}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-8 bg-[#C46A3C] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#A5552F] transition "
+                className="inline-flex items-center gap-2 bg-[#C46A3C] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#A5552F] transition"
               >
                 Ver Currículo Lattes
                 <ExternalLink size={18} />

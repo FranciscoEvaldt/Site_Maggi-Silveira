@@ -1,12 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Building2,
   Leaf,
   FileSignature,
-  Scale,
   Users,
   ShieldCheck,
   Briefcase,
@@ -42,13 +41,7 @@ const practiceAreas: PracticeArea[] = [
     icon: FileSignature,
     title: "Contratos",
     description:
-      "Elaboração, revisão e análise de contratos civis e empresariais, garantindo segurança jurídica nas relações negociais.",
-  },
-  {
-    icon: Scale,
-    title: "Direito Obrigacional",
-    description:
-      "Atuação em demandas relacionadas ao cumprimento de obrigações, responsabilidade civil e disputas contratuais.",
+      "Elaboração, revisão e análise de contratos civis e empresariais, garantindo segurança jurídica nas relações negociais.\n\nAtuação em demandas relacionadas ao cumprimento de obrigações, responsabilidade civil e disputas contratuais.",
   },
   {
     icon: Users,
@@ -76,15 +69,9 @@ const practiceAreas: PracticeArea[] = [
   },
   {
     icon: Truck,
-    title: "Direito de Transporte",
+    title: "Direito de Transporte e Trânsito",
     description:
-      "Consultoria jurídica em transporte de cargas e passageiros e responsabilidades legais.",
-  },
-  {
-    icon: Car,
-    title: "Direito de Trânsito",
-    description:
-      "Defesa administrativa em multas, recursos de suspensão de CNH e processos de trânsito.",
+      "Consultoria jurídica em transporte de cargas e passageiros e responsabilidades legais.\n\nDefesa administrativa em multas, recursos de suspensão de CNH e processos de trânsito.",
   },
   {
     icon: FileSearch,
@@ -95,7 +82,25 @@ const practiceAreas: PracticeArea[] = [
 ];
 
 export function PracticeAreas() {
-  const [selectedArea, setSelectedArea] = useState<PracticeArea | null>(null);
+  const [selectedArea, setSelectedArea] =
+    useState<PracticeArea | null>(null);
+
+  // 🔥 FECHAR COM ESC
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedArea(null);
+      }
+    };
+
+    if (selectedArea) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedArea]);
 
   return (
     <section id="practice-areas" className="py-28 bg-secondary">
@@ -131,10 +136,8 @@ export function PracticeAreas() {
               onClick={() => setSelectedArea(area)}
               className="group relative cursor-pointer bg-card border border-border p-8 rounded-xl transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl overflow-hidden"
             >
-              {/* borda animada */}
               <div className="absolute inset-0 rounded-xl border border-transparent group-hover:border-accent transition duration-500"></div>
 
-              {/* brilho */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-accent/10 via-transparent to-transparent"></div>
 
               <div className="relative flex items-start gap-5">
@@ -178,7 +181,6 @@ export function PracticeAreas() {
               <X size={22} />
             </button>
 
-            {/* Ícone da área no modal */}
             <div className="flex items-center justify-center mb-6">
               <div className="flex items-center justify-center h-16 w-16 rounded-full bg-accent/10">
                 <selectedArea.icon className="h-8 w-8 text-accent" />
@@ -191,14 +193,18 @@ export function PracticeAreas() {
 
             <div className="w-14 h-[2px] bg-accent mx-auto mb-6"></div>
 
-            <p className="text-muted-foreground leading-relaxed text-lg mb-8 text-center">
+            <p
+              style={{ whiteSpace: "pre-line", lineHeight: "1.7" }}
+              className="text-muted-foreground text-lg mb-8 text-center"
+            >
               {selectedArea.description}
             </p>
 
             <div className="text-center">
               <a
-                href={`https://wa.me/555199204815?{selectedArea.title}`}
+                href="https://wa.me/555199204815"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-accent text-white px-6 py-3 rounded-lg hover:opacity-90 transition"
               >
                 <MessageCircle size={18} />

@@ -2,14 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Scale } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const navItems = [
   { label: "Áreas de Prática", href: "#practice-areas" },
   { label: "Sobre", href: "#about" },
   { label: "Equipe", href: "#team" },
-  { label: "Contato", href: "#contact" },
+  { label: "Localização", href: "#contact" },
 ];
 
 export function Header() {
@@ -21,12 +22,17 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            
-             <div className="flex flex-col">
-          <span className="text-xl font-semibold tracking-tight text-foreground">
-            <img src="/secundaria preto.png" alt="Logo" className="h-20 w-auto" />
-          </span>
-        </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-semibold tracking-tight text-foreground">
+                <Image
+                  src="/secundaria preto.png"
+                  alt="Logo"
+                  width={160}
+                  height={60}
+                  className="h-14 sm:h-16 md:h-18 w-auto"
+                />
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -74,7 +80,7 @@ export function Header() {
                 </Link>
               ))}
               <Button className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90">
-                  Entre em contato
+                Entre em contato
               </Button>
             </div>
           </nav>

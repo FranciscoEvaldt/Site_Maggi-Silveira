@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Scale, Mail, Phone, MapPin } from "lucide-react";
+import { Scale, Mail, Phone, MapPin, Instagram } from "lucide-react";
 
 const footerLinks = {
   "Áreas de Atuação": [
@@ -74,19 +74,41 @@ export function Footer() {
 
             <ul className="space-y-4 text-sm text-primary-foreground/70">
               <li className="flex items-center gap-3">
+                <Instagram size={16} />
+                <a
+                  href="https://www.instagram.com/maggiesilveira.adv/"
+                  target="_blank"
+                  className="hover:underline text-primary-foreground/70"
+                >
+                  @maggiesilveira.adv
+                </a>
+              </li>
+
+              <li className="flex items-center gap-3">
                 <Mail size={16} />
-                maggiesilveira.adv@gmail.com
+                <a
+                    href="mailto:maggiesilveira.adv@gmail.com"
+                    className="hover:underline text-primary-foreground/70"
+                  >
+                    maggiesilveira.adv@gmail.com
+                  </a>
               </li>
 
               <li className="flex items-center gap-3">
                 <Phone size={16} />
-                (51) 99920-4815
+                <a
+                      href="tel:+5551999204815"
+                    className="hover:underline text-primary-foreground/70"
+                    >
+                      (51) 99920-4815
+                    </a>
               </li>
 
               <li className="flex items-center gap-3">
                 <MapPin size={16} />
                 Torres – RS
               </li>
+              
             </ul>
           </div>
         </div>

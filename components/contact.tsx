@@ -11,14 +11,10 @@ export function Contact() {
         {/* HEADER */}
         <div className="text-center mb-16">
           <p className="text-accent text-sm tracking-widest uppercase mb-4">
-            Entre em contato 
+            Entre em contato
           </p>
 
-          <h2 className="text-3xl md:text-4xl tracking-widest text-accent tracking-widest text-foreground mb-6">
-             Entre em contato 
-          </h2>
-
-          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-3xl md:text-3xl font-semibold text-foreground mb-6">
             Precisa de orientação jurídica sólida e estratégica? Entre em
             contato conosco.
           </p>
