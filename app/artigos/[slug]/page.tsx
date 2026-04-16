@@ -2,6 +2,8 @@ import { client } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
 
+export const revalidate = 60; // ISR
+
 type Params = {
   params: {
     slug: string;
@@ -13,7 +15,7 @@ type Post = {
   body: PortableTextBlock[];
 };
 
-async function getPost(slug: string): Promise<Post> {
+async function getPost(slug: string): Promise<Post | null> {
   return await client.fetch(
     `*[_type == "post" && slug.current == $slug][0]{
       title,
@@ -21,6 +23,17 @@ async function getPost(slug: string): Promise<Post> {
     }`,
     { slug }
   );
+}
+
+// 🔥 define quais páginas existem no build
+export async function generateStaticParams() {
+  const posts = await client.fetch(
+    `*[_type == "post"]{ "slug": slug.current }`
+  );
+
+  return posts.map((post: { slug: string }) => ({
+    slug: post.slug,
+  }));
 }
 
 const components = {
@@ -36,7 +49,9 @@ const components = {
 export default async function PostPage({ params }: Params) {
   const post = await getPost(params.slug);
 
-  if (!post) return <div>Artigo não encontrado</div>;
+  if (!post) {
+    return <div>Artigo não encontrado</div>;
+  }
 
   return (
     <section className="max-w-3xl mx-auto py-20 px-6">
