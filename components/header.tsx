@@ -80,7 +80,9 @@ export function Header() {
                 </Link>
               ))}
               <Button className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90">
-                Entre em contato
+                <Link href="#contact" onClick={() => setIsMenuOpen(false)} >
+                  Entre em contato
+                </Link>
               </Button>
             </div>
           </nav>
