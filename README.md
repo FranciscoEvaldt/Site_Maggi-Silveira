@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚖️ Site Profissional para Advocacia — Maggi & Silveira
 
-## Getting Started
+Projeto de site profissional desenvolvido com foco **comercial**, ideal para escritórios de advocacia que desejam uma presença digital moderna, responsiva e otimizada para conversão de clientes.
 
-First, run the development server:
+Este projeto foi criado como modelo de venda, podendo ser facilmente adaptado para diferentes clientes e áreas do direito.
+
+---
+
+## 🖥️ Preview
+
+![Preview do site](./public/preview.png)
+
+---
+
+## 🚀 Tecnologias utilizadas
+
+* ⚛️ Next.js
+* ⚛️ React
+* 🟦 TypeScript
+* 🎨 Tailwind CSS
+* 🧩 Componentização moderna
+
+---
+
+## ⚙️ Funcionalidades
+
+* ✅ Layout profissional e moderno
+* ✅ Seção de áreas de atuação
+* ✅ Página institucional completa
+* ✅ Integração com WhatsApp para contato direto
+* ✅ Design 100% responsivo (mobile + desktop)
+* ✅ Estrutura otimizada para SEO
+* ✅ Navegação fluida e intuitiva
+
+---
+
+## 🎯 Objetivo do projeto
+
+O principal objetivo deste projeto é servir como:
+
+* 💼 Produto digital para venda
+* 🌐 Modelo reutilizável para clientes reais
+* 📈 Portfólio profissional de desenvolvimento web
+
+---
+
+## 📂 Estrutura do projeto
+
+```
+/app
+/components
+/public
+/styles
+```
+
+---
+
+## 🚀 Como rodar o projeto
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/FranciscoEvaldt/Site_Maggi-Silveira.git
+```
+
+Acesse a pasta:
+
+```bash
+cd Site_Maggi-Silveira
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute o projeto:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🌐 Deploy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🔗 https://maggiesilveiraadv.com.br/
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 💡 Diferenciais
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Projeto pensado para **venda real**, não apenas estudo
+* Código organizado e reutilizável
+* Fácil personalização para outros clientes
+* Design focado em conversão
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🔧 Possíveis melhorias futuras
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* [ ] CMS para edição de conteúdo
+* [ ] Painel administrativo
+* [ ] Blog jurídico integrado
+* [ ] Melhorias avançadas de SEO
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 👨‍💻 Autor
+
+**Francisco Evaldt**
+
+* GitHub: https://github.com/FranciscoEvaldt
+
+---
+
+## 📄 Licença
+
+Este projeto está disponível para uso comercial e adaptação.
