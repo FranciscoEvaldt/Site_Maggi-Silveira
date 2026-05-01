@@ -9,10 +9,12 @@ const _playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playf
 const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
 export const metadata: Metadata = {
-  title: "Maggi & Silveira | Assessoria Jurídica de Confiança",
-  description:
-    "Escritório de advocacia de excelência com mais de 50 anos de experiência combinada. Especializado em direito empresarial, contencioso e planejamento sucessório.",
-}
+   title: "Advogado em Torres RS | Maggi & Silveira",
+  description: "Assessoria jurídica em Torres RS. Atendimento especializado em direito trabalhista, civil e previdenciário.",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
   
 export default function RootLayout({
   children,
