@@ -6,12 +6,6 @@ Este projeto foi criado como modelo de venda, podendo ser facilmente adaptado pa
 
 ---
 
-## 🖥️ Preview
-
-![Preview do site](./public/preview.png)
-
----
-
 ## 🚀 Tecnologias utilizadas
 
 * ⚛️ Next.js
