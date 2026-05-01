@@ -9,7 +9,7 @@ const _playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playf
 const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
 export const metadata: Metadata = {
-   title: "Advogado em Torres RS | Maggi & Silveira",
+   title: "Maggi & Silveira | Advogado em Torres RS",
   description: "Assessoria jurídica em Torres RS. Atendimento especializado em direito trabalhista, civil e previdenciário.",
   icons: {
     icon: "/favicon.ico",
