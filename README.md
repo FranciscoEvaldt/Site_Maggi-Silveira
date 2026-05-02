@@ -1,3 +1,4 @@
+
 # ⚖️ Site Profissional para Advocacia — Maggi & Silveira
 
 Projeto de site profissional desenvolvido com foco **comercial**, ideal para escritórios de advocacia que desejam uma presença digital moderna, responsiva e otimizada para conversão de clientes.
