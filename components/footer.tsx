@@ -76,7 +76,7 @@ export function Footer() {
               <li className="flex items-center gap-3">
                 <Instagram size={16} />
                 <a
-                  href="https://www.instagram.com/maggiesilveira.adv/"
+                  href="https://instagram.com/maggisilveira.adv"
                   target="_blank"
                   className="hover:underline text-primary-foreground/70"
                 >
